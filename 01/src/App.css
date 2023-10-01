@@ -1,0 +1,246 @@
+body{
+  box-sizing: border-box;
+  font-size: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+.header_container{
+  height: 120px;
+  background-color: #d3b714;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_img{
+  padding-left: 20px;
+}
+.header_nav {
+  display: flex;
+}
+
+.main-nav.hamburger-menu {
+  display: none;
+}
+
+/* Применяем медиа-запрос для экранов шириной до 768px */
+
+.header_ul{
+  display: inline-flex;
+}
+.header_li{
+  padding-right: 10px;
+}
+/* скрываем чекбокс */
+#menu__toggle {
+  opacity: 0;
+}
+/* стилизуем кнопку */
+.menu__btn {
+  display: flex; /* используем flex для центрирования содержимого */
+  align-items: center;  /* центрируем содержимое кнопки */
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+/* добавляем "гамбургер" */
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+}
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+/* контейнер меню */
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: auto;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: center;
+  background-color: #ECEFF1;
+  box-shadow: 1px 0 6px rgba(0, 0, 0, .2);
+}
+/* элементы меню */
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  right: 0;
+}
+
+main{
+  display: flex;
+  flex-grow: 1;
+}
+section{
+  order: 1;
+  flex-grow: 1;
+}
+@media (max-width: 991px) {
+  main {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .card{
+    min-width: 50%;
+  }
+}
+@media (max-width: 576px){
+  .card{
+    min-width: 50%;
+  }
+  .header_ul {
+    display: none;
+  }
+  .main-nav.hamburger-menu {
+    display: block;
+  }
+}
+
+.main_aside{
+  flex-basis: 210px;
+  flex-shrink: 0;
+}
+.main_aside_1{
+  background-color: #c798b9;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+.main_aside_2{
+  background-color: #9cb1c7;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  order: 1;
+}
+.main_info{
+  flex-grow: 1;
+  padding-top: 10px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.main_header{
+  padding-top: 20px;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 23%;
+  border: 1px solid #000;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  border-radius: 20px;
+  text-align: center;
+  transition: .25s ease;
+}
+.card_1,.card_2,.card_3,.card_4,.card_5,.card_6{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.lake{
+  margin-top: 20px;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  border: 13px solid #c7b7b7;
+  border-radius: 50%;
+  align-self: center;
+}
+.lake_header{
+  margin-top: 10px;
+  font-weight: bold;
+}
+.lake_text{
+  margin-top: 10px;
+  flex-grow: 1;
+}
+.lake_button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #685174;
+  color: white;
+  border: 1px solid #685174;
+}
+.card:hover{
+  transform: scale(1.1);
+}
+footer{
+  background-color: #83e783;
+  padding-top: 10px;
+  height: 50px;
+}
+.footer_text{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
